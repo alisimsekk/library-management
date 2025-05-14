@@ -63,7 +63,7 @@ public class BorrowService {
 
         User currentUser = currentPrincipalProvider.getCurrentUser();
         
-        if (currentUser.getUserType() == UserType.PATRON && !borrowRecord.getUser().getId().equals(currentUser.getId())) {
+        if (currentUser.getUserType() == UserType.PATRON && !borrowRecord.getUser().getGuid().equals(currentUser.getGuid())) {
             throw new BusinessException("You can only return books that you borrowed");
         }
 
